@@ -43,7 +43,53 @@ The data file is stored in the `data` folder as `bank.transaction.data.csv`.
 * **Isolation Forest** flagged a subset of transactions as potential anomalies, useful for fraud risk analysis.
 * Visualizations revealed differences in transaction behavior between normal and anomalous data points.
 
-*More insights and conclusion are in the `insights` file.*
+---
+
+## 💡 Insights
+> *This is the first phase of the analysis project; further engagement with stakeholders and a comprehensive understanding of the domain will significantly enhance the project's effectiveness. However, because this is synthetic data that is generated without any stakeholders involved, such interactions are not feasible.*
+
+* ### Clusters: 
+**Cluster 0 –** Middle-aged Engineers
+This group is strongly associated with engineers and has an average age of around 43. They maintain moderate account balances (slightly above the overall average) and conduct moderate-sized transactions. Their transaction durations are slightly shorter than those of other groups, suggesting more efficient or straightforward transaction patterns.
+
+**Cluster 1 –** Young Students
+Dominated by students, this is the youngest group at around 23 years old. They typically have the lowest account balances but make slightly higher transaction amounts relative to their available funds. This pattern may indicate riskier financial behaviors, such as spending beyond their means.
+
+**Cluster 2 –** Retired Individuals
+This cluster has the oldest users, averaging about 60 years old, and contains a high proportion of retired individuals. They hold high account balances and tend to use the branch channel more frequently. Their transactions and login behavior remain consistent with the overall average, reflecting stable and predictable financial activity.
+
+**Cluster 3 –** Older, High-Balance Users
+Composed mainly of older customers (around 55 years old) from mixed occupations, this group stands out with the highest account balances. They also record the highest average number of login attempts (~1.17 per user), which may suggest they are more security-conscious or occasionally face usability issues with the platform.
+
+The visualization below confirms these distinctions: age is the strongest driver separating clusters, followed by occupation type and account balance. Transaction duration and login attempts provide secondary separation, particularly for Clusters 0 and 3.
+    [Feature Influence per Cluster](visuals/Feature%20Influence%20per%20Cluster.png)
+
+* `Isolation Forest` identified a set of anomalous transactions, which, when cross-referenced with `KMeans Clustering` results, highlighted that Clusters 0 and 3 concentrated the majority of anomalies.
+
+* As shown in the figure below, `anomaly count` is <ins>significantly less</ins> than normal transactions count, as expected.
+    [Anomaly vs Normal Transaction Counts](visuals/Anomaly%20vs%20Normal%20Transaction%20Counts.png)
+
+* `Transaction Amount` is <ins>significantly higher</ins> in transactions flagged as anomaly.
+    [Anomaly Transaction Amount](visuals/Anomaly%20Transaction%20Amount.png)
+
+* Time and date variables influence the rate of anomalies. Specifically, the highest levels of anomalies have been observed on <ins>Fridays</ins> among days, <ins>6 PM</ins> compared to other hours of the day, and during the months of <ins>August, September, and November</ins> when compared to other months.
+    [Anomaly Rate by Day of Week](visuals/Anomaly%20Rate%20by%20Day%20of%20Week.png)
+    [Anomaly Rate by Hour](visuals/Anomaly%20Rate%20by%20Hour.png)
+    [Weekly Anomaly Rate Over Time](visuals/Weekly%20Anomaly%20Rate%20Over%20Time.png)
+
+* Anomalies are more common at the extremes `durations`, either <ins>very short and very long durations</ins>. While normal transactions dominate in the middle ranges.
+    [Distribution of Duration by Anomaly Type](visuals/Distribution%20of%20Duration%20by%20Anomaly%20Type.png)
+
+* `States` with the highest anomaly rates are <ins>Texas, Ohio, and Virginia</ins>.
+    [Anomaly Rate Map](visuals/Anomaly%20Rate%20Map.png)
+
+* The <ins>older</ins> a user is, the more likely they are to engage in or have their account involved in unusual activity. 
+    [Age Group Distribution by Anomaly Type](visuals/Age%20Group%20Distribution%20by%20Anomaly%20Type.png)
+
+* Among the four `occupations` analyzed in the dataset, <ins>engineers and retired individuals</ins> demonstrate a higher propensity to engage in or have their accounts associated with suspicious fraudulent activity.
+
+* A single login attempt is typically indicative of a legitimate transaction. In contrast, <ins>multiple login attempts</ins> significantly increase the likelihood of fraudulent activity.
+    [Login Attempts Distribution by Anomaly Type](visuals/Login%20Attempts%20Distribution%20by%20Anomaly%20Type.png)
 
 ---
 
