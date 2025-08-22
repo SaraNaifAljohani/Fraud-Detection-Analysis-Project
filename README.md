@@ -64,7 +64,7 @@ Composed mainly of older customers (around 55 years old) from mixed occupations,
 
 The visualization below confirms these distinctions: age is the strongest driver separating clusters, followed by occupation type and account balance. Transaction duration and login attempts provide secondary separation, particularly for Clusters 0 and 3.
     
-    ![Feature Influence per Cluster](visuals/Feature%20Influence%20per%20Cluster.png)
+    ![Feature Influence per Cluster](visuals/Feature Influence per Cluster.png)
 
 * `Isolation Forest` identified a set of anomalous transactions, which, when cross-referenced with `KMeans Clustering` results, highlighted that Clusters 0 and 3 concentrated the majority of anomalies.
 
@@ -96,7 +96,7 @@ The visualization below confirms these distinctions: age is the strongest driver
 
 * Among the four `occupations` analyzed in the dataset, <ins>engineers and retired individuals</ins> demonstrate a higher propensity to engage in or have their accounts associated with suspicious fraudulent activity.
 
-      ![Occupation Distribution by Anomaly Type](visuals\Occupation%20Distribution%20by%20Anomaly%20Type.png)
+      ![Occupation Distribution by Anomaly Type](visuals/Occupation Distribution by Anomaly Type.png)
 
 * A single login attempt is typically indicative of a legitimate transaction. In contrast, <ins>multiple login attempts</ins> significantly increase the likelihood of fraudulent activity.
 
