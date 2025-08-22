@@ -7,7 +7,7 @@ This project explores techniques for **detecting fraudulent transactions** using
 
 **Goal:** To explore a bank transaction dataset using clustering and anomaly detection to identify potential fraudulent patterns, and understand what characterizes risky behavior.
 
-**Data Soruce:** The dataset used in this project comes from [Kaggle: Fraud Detection Dataset](https://www.kaggle.com/datasets/valakhorasani/bank-transaction-dataset-for-fraud-detection).
+**Data Source:** The dataset used in this project comes from [Kaggle: Fraud Detection Dataset](https://www.kaggle.com/datasets/valakhorasani/bank-transaction-dataset-for-fraud-detection).
 
 The data file is stored in the `data` folder as `bank.transaction.data.csv`.
 
@@ -36,9 +36,10 @@ The data file is stored in the `data` folder as `bank.transaction.data.csv`.
 
 ---
 
-## 📊 Key Results
+## 📊 Key Points
 
-* **Optimal K (clusters)** was selected using silhouette scores.
+* Data preprocessing included **encoding** categorical variables, **standardizing** numerical features, and **filtering** unnecessary columns to prepare for clustering and anomaly detection.
+* **Optimal K (clusters)** was selected using silhouette scores and elbow method.
 * PCA reduced dimensionality while preserving variance, making clusters easier to visualize.
 * **Isolation Forest** flagged a subset of transactions as potential anomalies, useful for fraud risk analysis.
 * Visualizations revealed differences in transaction behavior between normal and anomalous data points.
@@ -66,7 +67,7 @@ The visualization below confirms these distinctions: age is the strongest driver
 
 * `Isolation Forest` identified a set of anomalous transactions, which, when cross-referenced with `KMeans Clustering` results, highlighted that Clusters 0 and 3 concentrated the majority of anomalies.
 
-* As shown in the figure below, `anomaly count` is <ins>significantly less</ins> than normal transactions count, as expected.
+* As shown in the figure below, `anomaly count` is <ins>significantly less</ins> than normal transaction count, as expected.
     [Anomaly vs Normal Transaction Counts](visuals/Anomaly%20vs%20Normal%20Transaction%20Counts.png)
 
 * `Transaction Amount` is <ins>significantly higher</ins> in transactions flagged as anomaly.
