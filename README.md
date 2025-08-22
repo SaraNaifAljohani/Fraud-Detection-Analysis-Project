@@ -39,7 +39,7 @@ The data file is stored in the `data` folder as `bank.transaction.data.csv`.
 ## 📊 Key Points
 
 * Data preprocessing included **encoding** categorical variables, **standardizing** numerical features, and **filtering** unnecessary columns to prepare for clustering and anomaly detection.
-* **Optimal K (clusters)** was selected using silhouette scores and elbow method.
+* **Optimal K (clusters)** was selected using silhouette scores and the elbow method.
 * PCA reduced dimensionality while preserving variance, making clusters easier to visualize.
 * **Isolation Forest** flagged a subset of transactions as potential anomalies, useful for fraud risk analysis.
 * Visualizations revealed differences in transaction behavior between normal and anomalous data points.
@@ -69,29 +69,36 @@ The visualization below confirms these distinctions: age is the strongest driver
 * `Isolation Forest` identified a set of anomalous transactions, which, when cross-referenced with `KMeans Clustering` results, highlighted that Clusters 0 and 3 concentrated the majority of anomalies.
 
 * As shown in the figure below, `anomaly count` is <ins>significantly less</ins> than normal transaction count, as expected.
-    ![Anomaly vs Normal Transaction Counts](visuals/Anomaly%20vs%20Normal%20Transaction%20Counts.png)
+
+  ![Anomaly vs Normal Transaction Counts](visuals/Anomaly%20vs%20Normal%20Transaction%20Counts.png)
 
 * `Transaction Amount` is <ins>significantly higher</ins> in transactions flagged as anomaly.
-    ![Anomaly Transaction Amount](visuals/Anomaly%20Transaction%20Amount.png)
+
+  ![Anomaly Transaction Amount](visuals/Anomaly%20Transaction%20Amount.png)
 
 * Time and date variables influence the rate of anomalies. Specifically, the highest levels of anomalies have been observed on <ins>Fridays</ins> among days, <ins>6 PM</ins> compared to other hours of the day, and during the months of <ins>August, September, and November</ins> when compared to other months.
-    ![Anomaly Rate by Day of Week](visuals/Anomaly%20Rate%20by%20Day%20of%20Week.png)
+
+  ![Anomaly Rate by Day of Week](visuals/Anomaly%20Rate%20by%20Day%20of%20Week.png)
     ![Anomaly Rate by Hour](visuals/Anomaly%20Rate%20by%20Hour.png)
     ![Weekly Anomaly Rate Over Time](visuals/Weekly%20Anomaly%20Rate%20Over%20Time.png)
 
 * Anomalies are more common at the extremes `durations`, either <ins>very short and very long durations</ins>. While normal transactions dominate in the middle ranges.
-    ![Distribution of Duration by Anomaly Type](visuals/Distribution%20of%20Duration%20by%20Anomaly%20Type.png)
+
+  ![Distribution of Duration by Anomaly Type](visuals/Distribution%20of%20Duration%20by%20Anomaly%20Type.png)
 
 * `States` with the highest anomaly rates are <ins>Texas, Ohio, and Virginia</ins>.
-    ![Anomaly Rate Map](visuals/Anomaly%20Rate%20Map.png)
+
+  ![Anomaly Rate Map](visuals/Anomaly%20Rate%20Map.png)
 
 * The <ins>older</ins> a user is, the more likely they are to engage in or have their account involved in unusual activity. 
-    ![Age Group Distribution by Anomaly Type](visuals/Age%20Group%20Distribution%20by%20Anomaly%20Type.png)
+
+  ![Age Group Distribution by Anomaly Type](visuals/Age%20Group%20Distribution%20by%20Anomaly%20Type.png)
 
 * Among the four `occupations` analyzed in the dataset, <ins>engineers and retired individuals</ins> demonstrate a higher propensity to engage in or have their accounts associated with suspicious fraudulent activity.
 
 * A single login attempt is typically indicative of a legitimate transaction. In contrast, <ins>multiple login attempts</ins> significantly increase the likelihood of fraudulent activity.
-    ![Login Attempts Distribution by Anomaly Type](visuals/Login%20Attempts%20Distribution%20by%20Anomaly%20Type.png)
+
+  ![Login Attempts Distribution by Anomaly Type](visuals/Login%20Attempts%20Distribution%20by%20Anomaly%20Type.png)
 
 ---
 
